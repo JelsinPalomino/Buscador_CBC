@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="Book_Search" href="img/Book_Search.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="controllers/ts.entertaiment.js"></script>
+
+    <title>EJES_ESTRATEGICOS</title>
+</head>
+
+<body ng-app="tsEntertainmentApp" ng-controller="VenuesListCtrl">
+    <div class="container">
+        <div class="col-12">
+            <div class="col-12 mt-3">
+                <h1>TITULOS SELECCIONADOS DE ACUERDO A EJES ESTRATEGICOS - CBC</h1>
+                <h5 class="mt-2">Seleccion de la web y la biblioteca</h5>
+
+                <hr/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input ng-model="query" class="form-control input-lg" placeholder="Ingresar el título o eje estrategico">
+                </div>
+                <hr />
+                <div class="">
+                  <p> Importante: </p>
+                    <p style="font-size:12px"><img ng-src="img/icono_pdf.png" height="32px" width="32px"> Disponible en la Web.</p>
+                  <p style="font-size:12px"><img ng-src="img/icono_fisico.png" height="32px" width="32px"> Disponible en fisico.</p>
+
+                  <hr />
+                  <p> Ejes Estratégicos: </p>
+                  <a target="_blank">1. Gestión del agua y cambio climático.</a> <br>
+                  <a target="_blank">2. Interculturalidad en la gobernanza y las politicas públicas.</a><br>
+                  <a target="_blank">3. Economía solidaria para el desarrollo local.</a><br>
+                  <a target="_blank">4. Cultura, patrimonio cultural y turismo en el desarrollo territorial.</a><br>
+                  <a target="_blank">5. Extractivismo, canon y desarrollo territorial.</a><br>
+                  <a target="_blank">6. Agroecología y agricultura familiar.</a><br>
+                  <a target="_blank">7. Equidad de género y desarrollo territorial</a>
+                  <hr />
+                  <p> Nota: </p>
+                  <div class="info" style="font-size:12px">Los titulos contenidos aqui, son producto de una selección hecha en base a los ejes estrategicos de la web y la biblioteca.</div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="result">Términos buscados: <b>{{query}}</b></div>
+                <div ng-repeat="venue in venues | filter:query" class="card shadow p-3 mb-4 bg-white rounded">
+                    <div class="cards">
+                        <h5 class="content"><b>Título: </b >{{venue.titulo}} <a href=tel:{{venue.link}}><img ng-src="{{venue.icono}}" height="25px" width="25px"</a></a></h5>
+                        <p class="content"><b>Autor: </b><a>{{venue.autor}}</a>
+                            <button class="button3"><a data-toggle="tooltip" title={{venue.eje_estrategico}}>{{venue.eje_estrategico}}</a></button>
+                        </p>
+                        <p class="content"><b>Tipo de material: </b> {{venue.tipo}}</p>
+                        <p class="content"><b>Año de publicación: </b> {{venue.extension}}</p>
+                        <p class="content"><b>Extensión: </b><a> {{venue.extension}}</a></p>
+                        <p class="content"><b>Editorial/Revista: </b><a> {{venue.editorial}}</a></p>
+                        <p class="content"><b>Fuente: </b><a> {{venue.fuente}}</a></p>
+                        <p class="content"><b>Link: </b><a> {{venue.link}}</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
