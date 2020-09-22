@@ -27,11 +27,11 @@
     </label>
 
     <ul class="menu">
-      <a href="https://jelsinpalomino.github.io/presentacion_cbc/">Home</a>
-      <a href="https://bibliotecabartolome.wordpress.com">Blog</a>
-      <!-- <a href="https://www.gob.pe/coronavirus">Advice for public</a> -->
-      <a href="https://jelsinpalomino.github.io/formulario_cbc/">Formulario</a>
-      <a href="http://www.cbc.org.pe">Contacto</a>
+      <a href="#">Home</a>
+      <a href="https://www.who.int/health-topics/coronavirus">Info</a>
+      <a href="https://www.gob.pe/coronavirus">Advice for public</a>
+      <a href="https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker">Data</a>
+      <a href="https://www.cbc.org.pe">Contact</a>
       <label for="chk" class="hide-menu-btn">
         <i class="fas fa-times"></i>
       </label>
@@ -55,35 +55,36 @@
                 <div class="">
                   <p> Importante: </p>
                     <p style="font-size:12px"><img ng-src="img/icono_pdf.png" height="32px" width="32px"> Disponible en la Web.</p>
-                  <p style="font-size:12px"><img ng-src="img/icono_fisico.png" height="32px" width="32px"> Disponible en fisico.</p>
+                  <!-- <p style="font-size:12px"><img ng-src="img/icono_fisico.png" height="32px" width="32px"> Disponible en fisico.</p> -->
 
                   <hr />
                   <p> Ejes Estratégicos: </p>
-                  <a target="_blank">1. Gestión del agua y cambio climático.</a> <br>
-                  <a target="_blank">2. Interculturalidad en la gobernanza y las politicas públicas.</a><br>
-                  <a target="_blank">3. Economía solidaria para el desarrollo local.</a><br>
+                  <a target="_blank">1. Gestión del agua, tierra, biodiversidad y cambio climático.</a> <br>
+                  <a target="_blank">2. Interculturalidad en la gobernanza y las políticas públicas.</a><br>
+                  <a target="_blank">3. Economía solidaria para el desarrollo local sostenible.</a><br>
                   <a target="_blank">4. Extractivismo, canon y desarrollo territorial.</a><br>
-                  <a target="_blank">5. Agroecología y agricultura familiar.</a><br>
-                  <a target="_blank">6. Equidad de género y desarrollo territorial</a>
+                  <a target="_blank">5. Agroecología, soberanía alimentaria y agricultura familiar.</a><br>
+                  <a target="_blank">6. Equidad de género y desarrollo territorial.</a><br>
+                  <!-- <a target="_blank">7. </a> -->
                   <hr />
                   <p> Nota: </p>
-                  <div class="info" style="font-size:12px">Los titulos contenidos aqui, son producto de una selección hecha en base a los ejes estrategicos de la web y la biblioteca.</div>
+                  <div class="info" style="font-size:12px">Los titulos contenidos aqui, son producto de una selección hecha en base a los ejes estrategicos de la web</div>
                 </div>
             </div>
             <div class="col-sm-8">
                 <div class="result">Términos buscados: <b>{{query}}</b></div>
                 <div ng-repeat="venue in venues | filter:query" class="card shadow p-3 mb-4 bg-white rounded">
                     <div class="cards">
-                        <h5 class="content"><b>Título: </b >{{venue.titulo}} <a href=tel:{{venue.link}}><img ng-src="{{venue.icono}}" height="25px" width="25px"</a></a></h5>
+                        <h5 class="content"><b>Título: </b >{{venue.titulo}} <a href=tel:{{venue.acortado}}><img ng-src="{{venue.icono}}" height="25px" width="25px"</a></a></h5>
                         <p class="content"><b>Autor: </b><a>{{venue.autor}}</a>
                             <button class="button3"><a data-toggle="tooltip" title={{venue.eje_estrategico}}>{{venue.eje_estrategico}}</a></button>
                         </p>
-                        <p class="content"><b>Tipo de material: </b> {{venue.tipo}}</p>
-                        <p class="content"><b>Año de publicación: </b> {{venue.extension}}</p>
-                        <p class="content"><b>Extensión: </b><a> {{venue.extension}}</a></p>
-                        <p class="content"><b>Editorial/Revista: </b><a> {{venue.editorial}}</a></p>
-                        <p class="content"><b>Fuente: </b><a> {{venue.fuente}}</a></p>
-                        <p class="content"><b>Link: </b><a> {{venue.link}}</a></p>
+                        <p class="content"><b>Link: </b><a> {{venue.acortado}}</a></p>
+                        <p class="content"><b>Observaciones: </b><a> {{venue.observaciones}}</a></p>
+                        <p class="content"><b>Referencia: </b> {{venue.referencia}}</p>
+                        <p class="content"><b>Resumen/Comentario: </b> {{venue.resumen_comentario}}</p>
+                        <!-- <p class="content"><b>Editorial/Revista: </b><a> {{venue.editorial}}</a></p>
+                        <p class="content"><b>Fuente: </b><a> {{venue.fuente}}</a></p> -->
                     </div>
                 </div>
             </div>
@@ -112,3 +113,4 @@
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+
